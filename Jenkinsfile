@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'Node18'
+    }
+
     // ── Environment variables ─────────────────────────────────────────────────
     environment {
         // Image names — update DOCKER_USER to your Docker Hub username
