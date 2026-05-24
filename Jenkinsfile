@@ -3,14 +3,13 @@ pipeline {
 
     // ── Environment variables ─────────────────────────────────────────────────
     environment {
-        // Docker Hub credentials — add in Jenkins → Manage Credentials
-        DOCKER_CREDS       = credentials('docker-hub-credentials')
-        DOCKER_USER        = "${DOCKER_CREDS_USR}"
+        // Image names — update DOCKER_USER to your Docker Hub username
+        DOCKER_USER        = "${env.DOCKER_HUB_USER ?: 'climatewatch'}"
         IMAGE_BACKEND      = "${DOCKER_USER}/climate-backend"
         IMAGE_FRONTEND     = "${DOCKER_USER}/climate-frontend"
         // Tag = Jenkins build number + first 7 chars of git commit
         IMAGE_TAG          = "${env.BUILD_NUMBER}-${env.GIT_COMMIT?.take(7) ?: 'local'}"
-        // Project name for docker compose (avoids conflicts)
+        // Project name for docker compose (avoids conflicts between builds)
         COMPOSE_PROJECT    = "climate-ci-${env.BUILD_NUMBER}"
         // Node environment for tests
         NODE_ENV           = "test"
@@ -20,14 +19,7 @@ pipeline {
     options {
         buildDiscarder(logRotator(numToKeepStr: '10'))
         timeout(time: 60, unit: 'MINUTES')
-        timestamps()
         disableConcurrentBuilds()
-        ansiColor('xterm')
-    }
-
-    // ── Trigger: poll SCM every 2 minutes OR via webhook ─────────────────────
-    triggers {
-        pollSCM('H/2 * * * *')
     }
 
     stages {
@@ -305,24 +297,28 @@ pipeline {
             }
             steps {
                 echo '━━━ STAGE 7: Push to Docker Hub ━━━'
-                sh '''
-                    echo "Logging in to Docker Hub..."
-                    echo "$DOCKER_CREDS_PSW" | docker login -u "$DOCKER_CREDS_USR" --password-stdin
-                    echo "✅ Docker Hub login successful"
-                '''
-                sh """
-                    echo "Pushing backend images..."
-                    docker push ${IMAGE_BACKEND}:${IMAGE_TAG}
-                    docker push ${IMAGE_BACKEND}:latest
+                withCredentials([usernamePassword(
+                    credentialsId: 'docker-hub-credentials',
+                    usernameVariable: 'DOCKER_HUB_USR',
+                    passwordVariable: 'DOCKER_HUB_PSW'
+                )]) {
+                    sh '''
+                        echo "Logging in to Docker Hub..."
+                        echo "$DOCKER_HUB_PSW" | docker login -u "$DOCKER_HUB_USR" --password-stdin
+                        echo "✅ Docker Hub login successful"
+                    '''
+                    sh """
+                        echo "Pushing backend images..."
+                        docker push ${IMAGE_BACKEND}:${IMAGE_TAG}
+                        docker push ${IMAGE_BACKEND}:latest
 
-                    echo "Pushing frontend images..."
-                    docker push ${IMAGE_FRONTEND}:${IMAGE_TAG}
-                    docker push ${IMAGE_FRONTEND}:latest
+                        echo "Pushing frontend images..."
+                        docker push ${IMAGE_FRONTEND}:${IMAGE_TAG}
+                        docker push ${IMAGE_FRONTEND}:latest
 
-                    echo "✅ All images pushed to Docker Hub"
-                    echo "   Backend : ${IMAGE_BACKEND}:${IMAGE_TAG}"
-                    echo "   Frontend: ${IMAGE_FRONTEND}:${IMAGE_TAG}"
-                """
+                        echo "✅ All images pushed to Docker Hub"
+                    """
+                }
             }
             post {
                 always {
@@ -337,7 +333,6 @@ pipeline {
             when { branch 'develop' }
             steps {
                 echo '━━━ STAGE 8a: Deploy to Staging ━━━'
-                // Deploy locally using docker compose (no SSH needed for local demo)
                 sh """
                     echo "Deploying staging stack with image tag: ${IMAGE_TAG}"
                     export IMAGE_TAG=${IMAGE_TAG}
@@ -364,28 +359,19 @@ pipeline {
             }
             steps {
                 echo '━━━ STAGE 8b: Deploy to Production ━━━'
-                // Manual approval gate — pipeline pauses here
                 timeout(time: 30, unit: 'MINUTES') {
                     input(
                         message: "Deploy build #${env.BUILD_NUMBER} (${IMAGE_TAG}) to PRODUCTION?",
-                        ok: '✅ Deploy to Production',
-                        submitter: 'admin',
-                        parameters: [
-                            string(
-                                name: 'DEPLOY_NOTE',
-                                defaultValue: '',
-                                description: 'Optional deployment note'
-                            )
-                        ]
+                        ok: 'Deploy to Production'
                     )
                 }
                 sh """
-                    echo "🚀 Deploying to production with tag: ${IMAGE_TAG}"
+                    echo "Deploying to production with tag: ${IMAGE_TAG}"
                     export IMAGE_TAG=${IMAGE_TAG}
                     export DOCKER_HUB_USERNAME=${DOCKER_USER}
-                    export MONGO_ROOT_PASSWORD=\${MONGO_ROOT_PASSWORD:-prod_password_change_me}
+                    export MONGO_ROOT_PASSWORD=prod_password_change_me
 
-                    docker compose -f docker-compose.prod.yml -p climate-prod pull
+                    docker compose -f docker-compose.prod.yml -p climate-prod pull || true
                     docker compose -f docker-compose.prod.yml -p climate-prod up -d --remove-orphans
                     docker system prune -f
 
