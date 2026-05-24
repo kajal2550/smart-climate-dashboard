@@ -1,0 +1,105 @@
+version: '3.9'
+
+# ── Production Stack ──────────────────────────────────────────────────────────
+# Uses pre-built images from Docker Hub registry
+#
+# Required env vars:
+#   DOCKER_HUB_USERNAME   your Docker Hub username
+#   IMAGE_TAG             image tag to deploy (e.g. 42-abc1234)
+#   MONGO_ROOT_PASSWORD   strong MongoDB password
+#
+# Usage:
+#   export DOCKER_HUB_USERNAME=youruser
+#   export IMAGE_TAG=42-abc1234
+#   export MONGO_ROOT_PASSWORD=strongpassword
+#   docker compose -f docker-compose.prod.yml up -d
+
+services:
+
+  # ── MongoDB ─────────────────────────────────────────────────────────────────
+  mongo:
+    image: mongo:7.0-jammy
+    container_name: climate-mongo-prod
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: climate_db
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:?MONGO_ROOT_PASSWORD is required}
+    volumes:
+      - mongo_data_prod:/data/db
+      - ./mongo-init/init.js:/docker-entrypoint-initdb.d/init.js:ro
+    networks:
+      - climate-net-prod
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+
+  # ── Backend ──────────────────────────────────────────────────────────────────
+  backend:
+    image: ${DOCKER_HUB_USERNAME:-local}/climate-backend:${IMAGE_TAG:-latest}
+    container_name: climate-backend-prod
+    restart: always
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      MONGO_URI: mongodb://${MONGO_ROOT_USER:-admin}:${MONGO_ROOT_PASSWORD}@mongo:27017/climate_db?authSource=admin
+      ALLOWED_ORIGINS: ${FRONTEND_URL:-http://localhost}
+      LOG_LEVEL: warn
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - climate-net-prod
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  # ── Frontend ─────────────────────────────────────────────────────────────────
+  frontend:
+    image: ${DOCKER_HUB_USERNAME:-local}/climate-frontend:${IMAGE_TAG:-latest}
+    container_name: climate-frontend-prod
+    restart: always
+    environment:
+      BACKEND_HOST: backend
+      BACKEND_PORT: 5000
+    ports:
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - climate-net-prod
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 128M
+
+volumes:
+  mongo_data_prod:
+    driver: local
+
+networks:
+  climate-net-prod:
+    driver: bridge

@@ -1,0 +1,207 @@
+.climate-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.22s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Blue top stripe */
+.climate-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  opacity: 0;
+  transition: opacity 0.22s;
+}
+
+.climate-card:hover {
+  border-color: var(--border-blue);
+  box-shadow: var(--shadow-blue);
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
+}
+
+.climate-card:hover::before,
+.climate-card.selected::before { opacity: 1; }
+
+.climate-card.selected {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px var(--blue-200), var(--shadow-blue);
+}
+
+/* ── Card header ───────────────────────────────────────── */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.card-city {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-900);
+  letter-spacing: -0.01em;
+}
+
+.card-station {
+  font-size: 0.72rem;
+  color: var(--text-400);
+  margin-top: 2px;
+}
+
+.condition-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* ── Temperature ───────────────────────────────────────── */
+.card-temp {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  margin-bottom: 12px;
+}
+
+.temp-value {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.03em;
+}
+
+.temp-unit {
+  font-size: 1.3rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.temp-f {
+  font-size: 0.82rem;
+  color: var(--text-400);
+  margin-left: 6px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── AQI ───────────────────────────────────────────────── */
+.card-aqi {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid;
+  margin-bottom: 14px;
+}
+
+.aqi-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-400);
+}
+
+.aqi-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.aqi-cat {
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* ── Metrics grid ──────────────────────────────────────── */
+.card-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 9px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  transition: border-color 0.18s;
+}
+
+.metric-item:hover { border-color: var(--border-blue); }
+
+.metric-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.6rem;
+  color: var(--text-400);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.metric-value {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-700);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.sensor-id {
+  font-size: 0.67rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-400);
+  background: var(--bg);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.card-hint {
+  font-size: 0.68rem;
+  color: var(--blue);
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.climate-card:hover .card-hint { opacity: 1; }
+
+/* ── Flash animation ───────────────────────────────────── */
+.climate-card.flashing {
+  animation: card-flash 2s ease-out forwards;
+}
+
+@keyframes card-flash {
+  0%   { box-shadow: 0 0 0 0 rgba(36,107,242,0.5); border-color: var(--blue); }
+  40%  { box-shadow: 0 0 0 6px rgba(36,107,242,0.08); }
+  100% { box-shadow: var(--shadow-sm); border-color: var(--border); }
+}

@@ -1,0 +1,86 @@
+version: '3.9'
+
+services:
+  # ── MongoDB ─────────────────────────────────────────────────────────────────
+  mongo-v2:
+    image: mongo:7.0-jammy
+    container_name: climate-mongo-v2
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: climate_db
+    volumes:
+      - mongo_data_v2:/data/db
+      - ./mongo-init/init.js:/docker-entrypoint-initdb.d/init.js:ro
+    ports:
+      - "27018:27017"
+    networks:
+      - climate-net-v2
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  # ── Backend ──────────────────────────────────────────────────────────────────
+  backend-v2:
+    build:
+      context: ./backend
+      target: production
+    container_name: climate-backend-v2
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      PORT: 5001
+      MONGO_URI: mongodb://mongo-v2:27017/climate_db
+      ALLOWED_ORIGINS: http://localhost:3001,http://frontend-v2:80
+      LOG_LEVEL: info
+    ports:
+      - "5001:5001"
+    depends_on:
+      mongo-v2:
+        condition: service_healthy
+    networks:
+      - climate-net-v2
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  # ── Frontend ─────────────────────────────────────────────────────────────────
+  frontend-v2:
+    build:
+      context: ./frontend
+      target: production
+      args:
+        REACT_APP_API_URL: /api
+    container_name: climate-frontend-v2
+    restart: unless-stopped
+    environment:
+      BACKEND_HOST: backend-v2
+      BACKEND_PORT: 5001
+    ports:
+      - "3001:80"
+    depends_on:
+      backend-v2:
+        condition: service_healthy
+    networks:
+      - climate-net-v2
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  mongo_data_v2:
+    driver: local
+
+networks:
+  climate-net-v2:
+    driver: bridge

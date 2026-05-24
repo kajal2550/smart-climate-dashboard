@@ -1,0 +1,42 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log
+.npm
+
+# Build outputs
+frontend/build/
+backend/dist/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+!.env.example
+backend/.env
+frontend/.env
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Coverage
+coverage/
+.nyc_output/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+*.tar
+
+# Mongo data
+mongo-data/
