@@ -82,25 +82,6 @@ pipeline {
             }
         }
 
-        stage('Push Images') {
-            steps {
-                script {
-                    if (env.REGISTRY_CREDENTIALS != 'none' && env.REGISTRY_CREDENTIALS != '') {
-                        withCredentials([usernamePassword(credentialsId: env.REGISTRY_CREDENTIALS,
-                                         usernameVariable: 'REG_USER',
-                                         passwordVariable: 'REG_PASS')]) {
-                            sh "docker login ${env.REGISTRY} -u $REG_USER -p $REG_PASS"
-                            sh "docker push ${env.FRONTEND_IMAGE}:latest"
-                            sh "docker push ${env.BACKEND_IMAGE}:latest"
-                        }
-                    } else {
-                        echo 'Skipping docker login and image push because credentials are set to none.'
-                    }
-                }
-            }
-        }
-    }
-
     post {
         always {
             cleanWs()
