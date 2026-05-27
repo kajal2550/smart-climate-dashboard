@@ -492,7 +492,9 @@ Go to **Jenkins → Manage Jenkins → Credentials → Global → Add Credential
    - SCM: Git → enter your repository URL
    - Script Path: Jenkinsfile
 
-4. Add credentials (listed above)
+4. ![Jenkins Success](file:///C:/Users/hp/.gemini/antigravity-ide/brain/4515ee73-6fa4-4fdc-865c-979f58ff346d/jenkins_success_1779898298599.png)
+
+![Dashboard UI](file:///C:/Users/hp/.gemini/antigravity-ide/brain/4515ee73-6fa4-4fdc-865c-979f58ff346d/frontend_dashboard_1779898411632.png)
 
 5. Configure webhook in GitHub/GitLab:
    - Payload URL: http://YOUR_JENKINS_URL/github-webhook/
@@ -780,6 +782,26 @@ docker system prune -f
 > *"This is a DevOps project that demonstrates containerizing a full-stack MERN application with Docker (multi-stage builds, Docker Compose, health checks, Nginx reverse proxy) and automating the entire build-test-scan-push-deploy lifecycle using a Jenkins declarative pipeline with parallel stages, Trivy security scanning, Docker Hub image registry, and SSH-based deployment with a manual approval gate for production."*
 
 ---
+
+## Screenshots
+
+### Jenkins Pipeline Success
+![Jenkins Pipeline Success](screenshots/jenkins-success.png)
+
+### Dashboard UI
+![Dashboard UI](screenshots/dashboard.png)
+
+### Docker Containers
+![Docker Containers](screenshots/docker.png)
+
+### CI/CD Terminal Output
+![CLI 1](screenshots/CLI_1.png)
+![CLI 2](screenshots/CLI_2.png)
+![CLI 3](screenshots/CLI_3.png)
+
+### Terminal Image
+![Terminal Image](screenshots/Terminalimg.png)
+
 
 ## 📜 License
 
