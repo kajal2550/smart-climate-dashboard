@@ -1,46 +1,35 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=36&pause=1000&color=FF5722&center=true&vCenter=true&width=700&lines=🌡️+Smart+Climate+Monitor;Real-Time+IoT+Dashboard;DevOps+%7C+Docker+%7C+Jenkins" alt="Typing SVG" />
+# 🌡️ Smart Climate Monitoring Dashboard ☁️
 
-<h1 align="center">
-  <img src="https://img.icons8.com/fluency/48/temperature.png" width="42" style="vertical-align:middle;" />
-  &nbsp;Smart Climate Monitoring Dashboard&nbsp;
-  <img src="https://img.icons8.com/fluency/48/partly-cloudy-day.png" width="42" style="vertical-align:middle;" />
-</h1>
+### ⚡ Full-Stack Real-Time Climate Monitoring &nbsp;·&nbsp; Containerized &nbsp;·&nbsp; CI/CD Automated ⚡
 
-<p align="center">
-  <i>⚡ Full-Stack Real-Time Climate Monitoring · Containerized · CI/CD Automated ⚡</i>
-</p>
+<br/>
 
-</div>
+<!-- ══════════════ LIVE DEMO BUTTON ══════════════ -->
+<a href="#">
+  <img src="https://img.shields.io/badge/🟢%20LIVE%20DEMO%20-%20Click%20Here%20to%20Visit%20Website%20🌐-00cc44?style=for-the-badge&labelColor=003300&color=00cc44" alt="Live Demo" height="42"/>
+</a>
 
-<div align="center">
+<br/><br/>
 
-<table>
-<tr>
-<td align="center">
+<!-- ══════════════ TECH STACK ══════════════ -->
 
-<div style="display:inline-block; border: 2.5px solid #2ecc40; border-radius: 10px; padding: 10px 24px; background: linear-gradient(135deg, #0d1f0d 0%, #0a2a0a 100%); box-shadow: 0 0 16px #2ecc4088;">
+**🛠️ Tech Stack**
 
-🟢 &nbsp; **Live Demo** &nbsp; | &nbsp; <a href="#" style="color:#2ecc40; font-weight:bold; font-size:16px; text-decoration:none; letter-spacing:0.5px;">🌐 Click Here to Visit Website</a> &nbsp; 🟢
+<br/>
 
-</div>
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js_20-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![React](https://img.shields.io/badge/React_18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![MongoDB](https://img.shields.io/badge/MongoDB_7.0-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
+![Trivy](https://img.shields.io/badge/Trivy-Security-EE0000?style=for-the-badge&logo=aquasecurity&logoColor=white)
+![Docker Compose](https://img.shields.io/badge/Docker_Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white)
 
-</td>
-</tr>
-</table>
-
-</div>
-
-<div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px;">
-  <a href="https://www.docker.com/" target="_blank"><img src="https://img.shields.io/badge/Docker-Enabled-blue?logo=docker" alt="Docker" /></a>
-  <a href="https://www.jenkins.io/" target="_blank"><img src="https://img.shields.io/badge/Jenkins-CI-blue?logo=jenkins" alt="Jenkins" /></a>
-  <a href="https://nodejs.org/" target="_blank"><img src="https://img.shields.io/badge/Node.js-20-green?logo=node.js" alt="Node.js" /></a>
-  <a href="https://reactjs.org/" target="_blank"><img src="https://img.shields.io/badge/React-18-blue?logo=react" alt="React" /></a>
-  <a href="https://www.mongodb.com/" target="_blank"><img src="https://img.shields.io/badge/MongoDB-7.0-green?logo=mongodb" alt="MongoDB" /></a>
-  <a href="https://www.nginx.com/" target="_blank"><img src="https://img.shields.io/badge/Nginx-reverse%20proxy-orange?logo=nginx" alt="Nginx" /></a>
-  <a href="https://github.com/aquasecurity/trivy" target="_blank"><img src="https://img.shields.io/badge/Trivy-security-red?logo=trivy" alt="Trivy" /></a>
-  <a href="https://www.docker.com/products/docker-compose" target="_blank"><img src="https://img.shields.io/badge/Docker%20Compose-2-blue?logo=docker" alt="Docker Compose" /></a>
 </div>
 
 **DevOps Project** — Full‑stack real‑time climate monitoring application containerized with Docker and automated with a Jenkins CI/CD pipeline.
