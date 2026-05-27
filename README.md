@@ -7,8 +7,9 @@
 <br/>
 
 <!-- ══════════════ LIVE DEMO BUTTON ══════════════ -->
+
 <a href="#">
-  <img src="https://img.shields.io/badge/🟢%20LIVE%20DEMO%20-%20Click%20Here%20to%20Visit%20Website%20🌐-00cc44?style=for-the-badge&labelColor=003300&color=00cc44" alt="Live Demo" height="42"/>
+  <img src="https://img.shields.io/badge/%F0%9F%9F%A2%20LIVE%20DEMO%20%E2%80%94%20Click%20Here%20to%20Visit%20Website%20%F0%9F%8C%90-00cc44?style=for-the-badge&labelColor=003300" alt="Live Demo" height="40"/>
 </a>
 
 <br/><br/>
@@ -19,16 +20,16 @@
 
 <br/>
 
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js_20-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![React](https://img.shields.io/badge/React_18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![MongoDB](https://img.shields.io/badge/MongoDB_7.0-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
-![Trivy](https://img.shields.io/badge/Trivy-Security-EE0000?style=for-the-badge&logo=aquasecurity&logoColor=white)
-![Docker Compose](https://img.shields.io/badge/Docker_Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white)
+<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+<img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white" />
+<img src="https://img.shields.io/badge/Node.js%2020-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+<img src="https://img.shields.io/badge/React%2018-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+<img src="https://img.shields.io/badge/MongoDB%207.0-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
+<img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white" />
+<img src="https://img.shields.io/badge/Trivy-EE0000?style=for-the-badge&logo=aquasecurity&logoColor=white" />
+<img src="https://img.shields.io/badge/Docker%20Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+<img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+<img src="https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white" />
 
 </div>
 
