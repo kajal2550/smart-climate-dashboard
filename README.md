@@ -1,13 +1,3 @@
-# 🌡️ Dockerized MERN Stack Smart Climate Monitoring Dashboard with CI/CD Pipeline using Jenkins
-
-> **DevOps Project** — Full-stack real-time climate monitoring application containerized with Docker and automated with a Jenkins CI/CD pipeline.
-
----
-
-## 📌 Table of Contents
-
-1. [Project Overview](#1-project-overview)
-2. [DevOps Focus Areas](#2-devops-focus-areas)
 3. [Architecture](#3-architecture)
 4. [MERN Stack Breakdown](#4-mern-stack-breakdown)
 5. [Docker — Containerization](#5-docker--containerization)
@@ -641,18 +631,6 @@ Smart Climate Monitoring Dashboard/
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/api/alerts` | List alerts (`?active=true&severity=critical`) |
-| GET | `/api/alerts/summary` | Count by severity |
-| PATCH | `/api/alerts/:id/acknowledge` | Acknowledge alert |
-| PATCH | `/api/alerts/:id/resolve` | Resolve alert |
-
-### Sensors
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/sensors` | List all sensors |
-| GET | `/api/sensors/:id` | Single sensor |
-| POST | `/api/sensors` | Register sensor |
 | PATCH | `/api/sensors/:id/status` | Update status |
 
 ### Health
@@ -783,26 +761,8 @@ docker system prune -f
 
 ---
 
-## Screenshots
-
-### Jenkins Pipeline Success
-![Jenkins Pipeline Success](screenshots/jenkins-success.png)
-
-### Dashboard UI
-![Dashboard UI](screenshots/dashboard.png)
-
-### Docker Containers
-![Docker Containers](screenshots/docker.png)
-
-### CI/CD Terminal Output
-![CLI 1](screenshots/CLI_1.png)
-![CLI 2](screenshots/CLI_2.png)
-![CLI 3](screenshots/CLI_3.png)
-
-### Terminal Image
-![Terminal Image](screenshots/Terminalimg.png)
-
-
 ## 📜 License
 
 MIT © 2026 ClimateWatch
+
+```
