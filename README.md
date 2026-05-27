@@ -13,39 +13,6 @@
 
 ---
 
-## 📸 Screenshots Overview
-
-
-  <div style="flex: 1 1 30%; text-align: center;">
-    <p>Jenkins Pipeline Success</p>
-    <img src="screenshots/jenkins-success.png" alt="Jenkins Pipeline" width="250"/>
-  </div>
-  <div style="flex: 1 1 30%; text-align: center;">
-    <p>Dashboard UI</p>
-    <img src="screenshots/dashboard.png" alt="Dashboard UI" width="250"/>
-  </div>
-  <div style="flex: 1 1 30%; text-align: center;">
-    <p>Docker Containers</p>
-    <img src="screenshots/docker.png" alt="Docker Containers" width="250"/>
-  </div>
-  <div style="flex: 1 1 30%; text-align: center;">
-    <p>CI/CD Terminal Output</p>
-    <img src="screenshots/CLI_1.png" alt="CLI 1" width="250"/>
-  </div>
-  <div style="flex: 1 1 30%; text-align: center;">
-    <p>Terminal Image</p>
-    <img src="screenshots/Terminalimg.png" alt="Terminal" width="250"/>
-  </div>
-  <div style="flex: 1 1 30%; text-align: center;">
-    <p>Sensor Overview</p>
-    <img src="screenshots/sensor.png" alt="Sensor" width="250"/>
-  </div>
-  <div style="flex: 1 1 30%; text-align: center;">
-    <p>Analytics View</p>
-    <img src="screenshots/anlytic.png" alt="Analytics" width="250"/>
-  </div>
-</div>
-
 ## 📌 Table of Contents
 
 - [Project Overview](#1-project-overview)
@@ -85,23 +52,6 @@
 ### Analytics Image
 ![Analytics](screenshots/anlytic.png)
 
-## 📌 Table of Contents
-
-- [Project Overview](#1-project-overview)
-- [DevOps Focus Areas](#2-devops-focus-areas)
-- [Architecture](#3-architecture)
-- [MERN Stack Breakdown](#4-mern-stack-breakdown)
-- [Docker — Containerization](#5-docker--containerization)
-- [Jenkins — CI/CD Pipeline](#6-jenkins--cicd-pipeline)
-- [Project Structure](#7-project-structure)
-- [Application Features](#8-application-features)
-- [API Endpoints](#9-api-endpoints)
-- [Socket.IO Real-Time Events](#10-socketio-real-time-events)
-- [Quick Start](#11-quick-start)
-- [Running Tests](#12-running-tests)
-- [Production Deployment](#13-production-deployment)
-- [Security](#14-security)
-- [One-Line Summary](#15-one-line-summary)
 
 ---
 
