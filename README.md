@@ -1,13 +1,20 @@
-# 🌡️ **Smart Climate Monitoring Dashboard**
+<h1 style="font-family: 'Segoe UI', Tahoma, sans-serif; color:#ff5722; margin-bottom:0;">🌡️ Smart Climate Monitoring Dashboard</h1>
 
-[![Live Demo - Coming Soon](https://img.shields.io/badge/Live%20Demo-Coming%20Soon-brightgreen?logo=livejournal)](#)
+<div style="display:inline-flex; align-items:center; border:2px solid #4caf50; border-radius:5px; padding:4px 8px; margin-bottom:16px;">
+  <span style="color:#4caf50; font-weight:bold;">Live Demo - Coming Soon</span>
+  <a href="#" style="margin-left:12px; text-decoration:none; color:#4caf50; font-weight:bold;">Click here to view website</a>
+</div>
 
-
-[![Docker](https://img.shields.io/badge/Docker-Enabled-blue?logo=docker)](https://www.docker.com/)
-[![Jenkins](https://img.shields.io/badge/Jenkins-CI-blue?logo=jenkins)](https://www.jenkins.io/)
-[![Node.js](https://img.shields.io/badge/Node.js-20-green?logo=node.js)](https://nodejs.org/)
-[![React](https://img.shields.io/badge/React-18-blue?logo=react)](https://reactjs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-7.0-green?logo=mongodb)](https://www.mongodb.com/)
+<div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px;">
+  <a href="https://www.docker.com/" target="_blank"><img src="https://img.shields.io/badge/Docker-Enabled-blue?logo=docker" alt="Docker" /></a>
+  <a href="https://www.jenkins.io/" target="_blank"><img src="https://img.shields.io/badge/Jenkins-CI-blue?logo=jenkins" alt="Jenkins" /></a>
+  <a href="https://nodejs.org/" target="_blank"><img src="https://img.shields.io/badge/Node.js-20-green?logo=node.js" alt="Node.js" /></a>
+  <a href="https://reactjs.org/" target="_blank"><img src="https://img.shields.io/badge/React-18-blue?logo=react" alt="React" /></a>
+  <a href="https://www.mongodb.com/" target="_blank"><img src="https://img.shields.io/badge/MongoDB-7.0-green?logo=mongodb" alt="MongoDB" /></a>
+  <a href="https://www.nginx.com/" target="_blank"><img src="https://img.shields.io/badge/Nginx-reverse%20proxy-orange?logo=nginx" alt="Nginx" /></a>
+  <a href="https://github.com/aquasecurity/trivy" target="_blank"><img src="https://img.shields.io/badge/Trivy-security-red?logo=trivy" alt="Trivy" /></a>
+  <a href="https://www.docker.com/products/docker-compose" target="_blank"><img src="https://img.shields.io/badge/Docker%20Compose-2-blue?logo=docker" alt="Docker Compose" /></a>
+</div>
 
 **DevOps Project** — Full‑stack real‑time climate monitoring application containerized with Docker and automated with a Jenkins CI/CD pipeline.
 
