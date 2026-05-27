@@ -2,16 +2,14 @@ pipeline {
     agent any
 
     environment {
-        // TODO: Set your Docker registry URL (e.g., docker.io/yourusername or ghcr.io/yourorg)
         REGISTRY = 'your-registry.com'
-        // Image names – adjust if needed
         FRONTEND_IMAGE = "${env.REGISTRY}/smart-climate-dashboard-frontend"
         BACKEND_IMAGE  = "${env.REGISTRY}/smart-climate-dashboard-backend"
-        // Credentials ID in Jenkins for Docker registry login
         REGISTRY_CREDENTIALS = 'docker-registry-credentials'
     }
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
@@ -22,7 +20,6 @@ pipeline {
             steps {
                 script {
                     dir('frontend') {
-                        // Build Docker image for the frontend
                         sh "docker build -t ${env.FRONTEND_IMAGE}:latest ."
                     }
                 }
@@ -33,14 +30,12 @@ pipeline {
             steps {
                 script {
                     dir('backend') {
-                        // Build Docker image for the backend
                         sh "docker build -t ${env.BACKEND_IMAGE}:latest ."
                     }
                 }
             }
         }
 
-        // Lint Frontend using Node Docker image
         stage('Lint Frontend') {
             steps {
                 script {
@@ -54,7 +49,7 @@ pipeline {
                 }
             }
         }
-        // Lint Backend using Node Docker image
+
         stage('Lint Backend') {
             steps {
                 script {
@@ -69,26 +64,28 @@ pipeline {
             }
         }
 
-        // Frontend Tests – customize as needed
         stage('Frontend Tests') {
             steps {
-                echo 'Run frontend tests here (e.g., npm test)'
+                echo 'Run frontend tests here'
             }
         }
 
         stage('Backend Tests') {
             steps {
-                echo 'Run backend tests here (e.g., pytest)'
+                echo 'Run backend tests here'
             }
         }
+    }
 
     post {
         always {
             cleanWs()
         }
+
         success {
             echo 'Pipeline completed successfully.'
         }
+
         failure {
             echo 'Pipeline failed.'
         }
