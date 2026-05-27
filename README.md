@@ -8,9 +8,15 @@
 
 <!-- ══════════════ LIVE DEMO BUTTON ══════════════ -->
 
-<a href="#">
-  <img src="https://img.shields.io/badge/%F0%9F%9F%A2%20%20LIVE%20DEMO%20%E2%80%94%20Click%20Here%20to%20Visit%20Website%20%20%F0%9F%8C%90-00dd44?style=for-the-badge&labelColor=003300" alt="Live Demo" height="55" width="520"/>
+<table>
+<tr>
+<td align="center" style="border: 5px solid #00cc44; border-radius: 12px; background-color: #0099cc; padding: 14px 48px;">
+<a href="#" style="color: white; font-size: 20px; font-weight: bold; text-decoration: none; letter-spacing: 1px;">
+🟢 &nbsp; LIVE DEMO — Click Here to Visit Website &nbsp; 🌐
 </a>
+</td>
+</tr>
+</table>
 
 <br/><br/>
 
