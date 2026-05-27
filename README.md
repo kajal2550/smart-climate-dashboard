@@ -1,8 +1,35 @@
-<h1 style="font-family: 'Segoe UI', Tahoma, sans-serif; color:#ff5722; margin-bottom:0;">🌡️ Smart Climate Monitoring Dashboard</h1>
+<div align="center">
 
-<div style="display:inline-flex; align-items:center; border:2px solid #4caf50; border-radius:5px; padding:4px 8px; margin-bottom:16px;">
-  <span style="color:#4caf50; font-weight:bold;">Live Demo - Coming Soon</span>
-  <a href="#" style="margin-left:12px; text-decoration:none; color:#4caf50; font-weight:bold;">Click here to view website</a>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=36&pause=1000&color=FF5722&center=true&vCenter=true&width=700&lines=🌡️+Smart+Climate+Monitor;Real-Time+IoT+Dashboard;DevOps+%7C+Docker+%7C+Jenkins" alt="Typing SVG" />
+
+<h1 align="center">
+  <img src="https://img.icons8.com/fluency/48/temperature.png" width="42" style="vertical-align:middle;" />
+  &nbsp;Smart Climate Monitoring Dashboard&nbsp;
+  <img src="https://img.icons8.com/fluency/48/partly-cloudy-day.png" width="42" style="vertical-align:middle;" />
+</h1>
+
+<p align="center">
+  <i>⚡ Full-Stack Real-Time Climate Monitoring · Containerized · CI/CD Automated ⚡</i>
+</p>
+
+</div>
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center">
+
+<div style="display:inline-block; border: 2.5px solid #2ecc40; border-radius: 10px; padding: 10px 24px; background: linear-gradient(135deg, #0d1f0d 0%, #0a2a0a 100%); box-shadow: 0 0 16px #2ecc4088;">
+
+🟢 &nbsp; **Live Demo** &nbsp; | &nbsp; <a href="#" style="color:#2ecc40; font-weight:bold; font-size:16px; text-decoration:none; letter-spacing:0.5px;">🌐 Click Here to Visit Website</a> &nbsp; 🟢
+
+</div>
+
+</td>
+</tr>
+</table>
+
 </div>
 
 <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px;">
