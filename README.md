@@ -1,16 +1,51 @@
-3. [Architecture](#3-architecture)
-4. [MERN Stack Breakdown](#4-mern-stack-breakdown)
-5. [Docker — Containerization](#5-docker--containerization)
-6. [Jenkins — CI/CD Pipeline](#6-jenkins--cicd-pipeline)
-7. [Project Structure](#7-project-structure)
-8. [Application Features](#8-application-features)
-9. [API Endpoints](#9-api-endpoints)
-10. [Socket.IO Real-Time Events](#10-socketio-real-time-events)
-11. [Quick Start](#11-quick-start)
-12. [Running Tests](#12-running-tests)
-13. [Production Deployment](#13-production-deployment)
-14. [Security](#14-security)
-15. [One-Line Summary](#15-one-line-summary)
+# 🌡️ Dockerized MERN Stack Smart Climate Monitoring Dashboard with CI/CD Pipeline using Jenkins
+
+> **DevOps Project** — Full-stack real-time climate monitoring application containerized with Docker and automated with a Jenkins CI/CD pipeline.
+
+---
+
+## Screenshots
+
+### Jenkins Pipeline Success
+![Jenkins Pipeline Success](screenshots/jenkins-success.png)
+
+### Dashboard UI
+![Dashboard UI](screenshots/dashboard.png)
+
+### Docker Containers
+![Docker Containers](screenshots/docker.png)
+
+### CI/CD Terminal Output
+![CLI 1](screenshots/CLI_1.png)
+![CLI 2](screenshots/CLI_2.png)
+![CLI 3](screenshots/CLI_3.png)
+
+### Terminal Image
+![Terminal Image](screenshots/Terminalimg.png)
+
+### Sensor Image
+![Sensor](screenshots/sensor.png)
+
+### Analytics Image
+![Analytics](screenshots/anlytic.png)
+
+## 📌 Table of Contents
+
+- [Project Overview](#1-project-overview)
+- [DevOps Focus Areas](#2-devops-focus-areas)
+- [Architecture](#3-architecture)
+- [MERN Stack Breakdown](#4-mern-stack-breakdown)
+- [Docker — Containerization](#5-docker--containerization)
+- [Jenkins — CI/CD Pipeline](#6-jenkins--cicd-pipeline)
+- [Project Structure](#7-project-structure)
+- [Application Features](#8-application-features)
+- [API Endpoints](#9-api-endpoints)
+- [Socket.IO Real-Time Events](#10-socketio-real-time-events)
+- [Quick Start](#11-quick-start)
+- [Running Tests](#12-running-tests)
+- [Production Deployment](#13-production-deployment)
+- [Security](#14-security)
+- [One-Line Summary](#15-one-line-summary)
 
 ---
 
