@@ -15,7 +15,7 @@
 
 ## 📸 Screenshots Overview
 
-<div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+
   <div style="flex: 1 1 30%; text-align: center;">
     <p>Jenkins Pipeline Success</p>
     <img src="screenshots/jenkins-success.png" alt="Jenkins Pipeline" width="250"/>
