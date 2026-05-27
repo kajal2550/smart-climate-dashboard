@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌡️ Smart Climate Monitoring Dashboard ☁️
+# 🌤️ Smart Climate Monitoring Dashboard ☁️
 
 ### ⚡ Full-Stack Real-Time Climate Monitoring &nbsp;·&nbsp; Containerized &nbsp;·&nbsp; CI/CD Automated ⚡
 
@@ -9,7 +9,7 @@
 <!-- ══════════════ LIVE DEMO BUTTON ══════════════ -->
 
 <a href="#">
-  <img src="https://img.shields.io/badge/%F0%9F%9F%A2%20%20LIVE%20DEMO%20%E2%80%94%20Click%20Here%20to%20Visit%20Website%20%20%F0%9F%8C%90-ffffff?style=for-the-badge&labelColor=0099cc&color=0099cc" alt="Live Demo" height="55" width="540"/>
+  <img src="https://img.shields.io/badge/%F0%9F%8C%A4%EF%B8%8F%20%20LIVE%20DEMO%20%E2%80%94%20Click%20Here%20to%20Visit%20Website%20%20%F0%9F%8C%90-ffffff?style=for-the-badge&labelColor=0099cc&color=0099cc" alt="Live Demo" height="55" width="540"/>
 </a>
 
 <br/><br/>
