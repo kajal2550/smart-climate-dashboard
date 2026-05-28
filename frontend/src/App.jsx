@@ -13,6 +13,7 @@ import AnalyticsPage from './components/AnalyticsPage';
 import ContactPage from './components/ContactPage';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
+import GlobePage from './pages/GlobePage';
 import './App.css';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/alerts"    element={<div className="page-inner"><AlertsPage /></div>}    />
                 <Route path="/map"       element={<div className="page-inner"><MapPage /></div>}       />
                 <Route path="/analytics" element={<div className="page-inner"><AnalyticsPage /></div>} />
+                <Route path="/globe" element={<GlobePage />} />
               </Routes>
             </main>
             <Footer />

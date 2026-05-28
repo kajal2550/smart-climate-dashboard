@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { fetchSensors } from '../services/api';
-import { MdSensors } from 'react-icons/md';
 import './SensorsPage.css';
 
 const STATUS_COLORS = { active: '#10b981', inactive: '#64748b', maintenance: '#f59e0b' };

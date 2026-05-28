@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useClimate } from '../context/ClimateContext';
 import ClimateCard from './ClimateCard';
 import ClimateCharts from './ClimateCharts';
@@ -16,6 +17,21 @@ function Dashboard() {
   } = useClimate();
   const [selectedSensor, setSelectedSensor] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
+
+  const { search } = useLocation();
+  const queryParams = useMemo(() => new URLSearchParams(search), [search]);
+  const filterCity = queryParams.get('city');
+
+  useEffect(() => {
+    if (filterCity && readings.length > 0) {
+      const match = readings.find(
+        r => r.location?.city?.toLowerCase() === filterCity.toLowerCase()
+      );
+      if (match) {
+        setSelectedSensor(match.sensorId);
+      }
+    }
+  }, [filterCity, readings]);
 
   const handleRefresh = async () => {
     setRefreshing(true);

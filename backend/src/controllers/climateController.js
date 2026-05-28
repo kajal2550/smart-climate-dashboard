@@ -211,10 +211,20 @@ async function generateAlerts(reading) {
         threshold: check.threshold,
       });
 
-      try {
-        const io = getIO();
-        io.emit('new_alert', alert);
-      } catch (_) {}
-    }
+        // Emit alert to sockets
+        try {
+          const io = getIO();
+          io.emit('new_alert', alert);
+        } catch (_) {}
+        // Send notification via configured channels
+        try {
+          await dispatchAlert({
+            whatsapp: process.env.WHATSAPP_TO,
+            telegram: process.env.TELEGRAM_CHAT_ID,
+            message: alert.message,
+          });
+        } catch (e) {
+          console.error('Notification dispatch error:', e);
+        }    }
   }
 }

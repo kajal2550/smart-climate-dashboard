@@ -7,7 +7,7 @@ import {
   MdMenu, MdClose, MdLogin, MdPersonAdd,
   MdDarkMode, MdLightMode, MdLogout,
   MdKeyboardArrowDown, MdCheckCircle,
-  MdSpeed, MdAir,
+  MdSpeed, MdAir, MdPublic,
 } from 'react-icons/md';
 import { useClimate } from '../context/ClimateContext';
 import { useAuth } from '../context/AuthContext';
@@ -18,6 +18,7 @@ const NAV_5 = [
   { path: '/',          label: 'Home',      },
   { path: '/sensors',   label: 'Sensors',   },
   { path: '/alerts',    label: 'Alerts',    },
+  { path: '/globe',     label: 'Globe',     },
   { path: '/analytics', label: 'Analytics', },
   { path: '/contact',   label: 'Contact',   },
 ];
@@ -30,6 +31,7 @@ const SIDEBAR_ITEMS = [
   { section: 'Monitor' },
   { path: '/sensors',   label: 'Sensors',   icon: <MdSensors />       },
   { path: '/alerts',    label: 'Alerts',    icon: <MdNotifications /> },
+  { path: '/globe',     label: 'Globe',     icon: <MdPublic />        },
   { path: '/map',       label: 'Map View',  icon: <MdMap />           },
   { path: '/analytics', label: 'Analytics', icon: <MdBarChart />      },
   { section: 'More' },

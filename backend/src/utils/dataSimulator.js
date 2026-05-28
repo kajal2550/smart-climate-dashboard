@@ -11,6 +11,7 @@ const SENSORS = [
   { sensorId: 'SENSOR-004', name: 'Park Street Station', city: 'Kolkata', lat: 22.5535, lng: 88.3537 },
   { sensorId: 'SENSOR-005', name: 'Anna Nagar Station', city: 'Chennai', lat: 13.0850, lng: 80.2101 },
   { sensorId: 'SENSOR-006', name: 'Banjara Hills Station', city: 'Hyderabad', lat: 17.4156, lng: 78.4347 },
+  { sensorId: 'SENSOR-007', name: 'Saraba Nagar Station, Punjab', city: 'Ludhiana', lat: 30.9010, lng: 75.8573 },
 ];
 
 const CONDITIONS = ['sunny', 'cloudy', 'rainy', 'stormy', 'foggy', 'windy', 'partly-cloudy'];
