@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { io } from 'socket.io-client';
 import { fetchLatestReadings, fetchAlertSummary } from '../services/api';
 
-const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || '';
+const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || 'https://smart-climate-dashboard-1.onrender.com';
 
 export function useClimateData() {
   const [readings, setReadings] = useState([]);

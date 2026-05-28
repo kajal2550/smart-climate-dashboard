@@ -57,7 +57,7 @@ export function ClimateProvider({ children }) {
   useEffect(() => {
     loadData();
 
-    const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || '';
+    const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || 'https://smart-climate-dashboard-1.onrender.com';
     const socket = io(SOCKET_URL, {
       transports: ['websocket', 'polling'],
       reconnectionAttempts: 10,
