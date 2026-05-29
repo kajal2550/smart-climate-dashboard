@@ -2,10 +2,8 @@ pipeline {
     agent any
 
     environment {
-        REGISTRY = 'your-registry.com'
-        FRONTEND_IMAGE = "${env.REGISTRY}/smart-climate-dashboard-frontend"
-        BACKEND_IMAGE  = "${env.REGISTRY}/smart-climate-dashboard-backend"
-        REGISTRY_CREDENTIALS = 'docker-registry-credentials'
+        FRONTEND_IMAGE = "smart-climate-dashboard-frontend"
+        BACKEND_IMAGE  = "smart-climate-dashboard-backend"
     }
 
     stages {
@@ -18,61 +16,49 @@ pipeline {
 
         stage('Build Frontend Image') {
             steps {
-                script {
-                    dir('frontend') {
-                        sh "docker build -t ${env.FRONTEND_IMAGE}:latest ."
-                    }
+                dir('frontend') {
+                    bat "docker build -t %FRONTEND_IMAGE%:latest ."
                 }
             }
         }
 
         stage('Build Backend Image') {
             steps {
-                script {
-                    dir('backend') {
-                        sh "docker build -t ${env.BACKEND_IMAGE}:latest ."
-                    }
+                dir('backend') {
+                    bat "docker build -t %BACKEND_IMAGE%:latest ."
                 }
             }
         }
 
         stage('Lint Frontend') {
             steps {
-                script {
-                    docker.image('node:20').inside {
-                        dir('frontend') {
-                            sh 'node --version'
-                            sh 'npm --version'
-                            sh 'npm ci'
-                        }
-                    }
+                dir('frontend') {
+                    bat 'node --version'
+                    bat 'npm --version'
+                    bat 'npm install'
                 }
             }
         }
 
         stage('Lint Backend') {
             steps {
-                script {
-                    docker.image('node:20').inside {
-                        dir('backend') {
-                            sh 'node --version'
-                            sh 'npm --version'
-                            sh 'npm ci'
-                        }
-                    }
+                dir('backend') {
+                    bat 'node --version'
+                    bat 'npm --version'
+                    bat 'npm install'
                 }
             }
         }
 
         stage('Frontend Tests') {
             steps {
-                echo 'Run frontend tests here'
+                echo 'Frontend tests'
             }
         }
 
         stage('Backend Tests') {
             steps {
-                echo 'Run backend tests here'
+                echo 'Backend tests'
             }
         }
     }
